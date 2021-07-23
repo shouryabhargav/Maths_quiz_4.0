@@ -31,34 +31,48 @@ function send() {
 }
 
 
-question_turn = "player1";
-answer_turn = "player2";
+question_turn = "Player_1";
+answer_turn = "Player_2";
 
 function check(){
-	var getanswer=document.getElementById("input_check_box").value;
-	var Answer = getanswer.toLowerCase();
-	if(Answer==newword){
-		document.getElementById("rightanswer");
-		if(answer_turn=="Player_1"){
-			player1_score =+ 1;
-			document.getElementById("player1_score").innerHTML=player1_score;
+	get_answer = document.getElementById("input_check_box").value;
+	if(get_answer == actual_answer)	
+	{
+		if(answer_turn == "Player_1")
+		{
+			player1_score = player1_score +1;
+		    document.getElementById("player1_score").innerHTML = player1_score;
 		}
-		else{
-		   player2_score =+ 1;
-		   document.getElementById("player2_score").innerHTML=player2_score;
+		else 
+		{
+			player2_score = player2_score +1;
+		    document.getElementById("player2_score").innerHTML = player2_score;
 		}
 	}
-   
-	if(question_turn=="Player_1"){
-		question_turn="Player_2";
-		document.getElementById("question_turn").innerHTML="Question Turn - " + player2_name ;
-		document.getElementById("answer_turn").innerHTML="Answer Turn - " + player1_name ;
+	
+	if(question_turn == "Player_1")
+	{
+		question_turn = "Player_2"
+		document.getElementById("question_turn").innerHTML = "Question Turn - " + player2_name ;
 	}
-	else{
-	   question_turn="Player_1";
-	   document.getElementById("question_turn").innerHTML="Question Turn - " + player1_name ;
-	   document.getElementById("answer_turn").innerHTML="Answer Turn - " + player2_name ;
+	else 
+	{
+		question_turn = "Player_1"
+		document.getElementById("question_turn").innerHTML = "Question Turn - " + player1_name ;
 	}
+
+	if(answer_turn == "Player_1")
+	{
+		answer_turn = "Player_2"
+		document.getElementById("answer_turn").innerHTML = "Answer Turn - " + player2_name ;
+	}
+	else 
+	{
+		answer_turn = "Player_1"
+		document.getElementById("answer_turn").innerHTML = "Answer Turn - " + player1_name ;
+	}
+
+    document.getElementById("output").innerHTML = "";
+}
+
    
-	document.getElementById("output").innerHTML="";
-   }
